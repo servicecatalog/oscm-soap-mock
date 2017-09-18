@@ -15,7 +15,7 @@
     </properties>
 
     <build>
-    
+
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
@@ -35,7 +35,7 @@
                 <executions>
                     <execution>
                         <id>oscm-common</id>
-                        <phase>initialize</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
@@ -51,7 +51,7 @@
 
                     <execution>
                         <id>oscm-extsvc-provisioning</id>
-                        <phase>initialize</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
@@ -65,7 +65,7 @@
                     </execution>
                     <execution>
                         <id>oscm-extsvc-notification</id>
-                        <phase>initialize</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
@@ -79,7 +79,7 @@
                     </execution>
                     <execution>
                         <id>oscm-extsvc-operation</id>
-                        <phase>initialize</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
@@ -93,7 +93,7 @@
                     </execution>
                     <execution>
                         <id>oscm-extsvc-platform</id>
-                        <phase>initialize</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
