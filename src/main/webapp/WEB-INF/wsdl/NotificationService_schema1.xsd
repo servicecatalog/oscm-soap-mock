@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://oscm.org/xsd" xmlns:tns="http://oscm.org/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="billingPerformed" type="tns:billingPerformed"/>
+
+  <xs:element name="billingPerformedResponse" type="tns:billingPerformedResponse"/>
+
+  <xs:element name="onActivateProduct" type="tns:onActivateProduct"/>
+
+  <xs:element name="onActivateProductResponse" type="tns:onActivateProductResponse"/>
+
+  <xs:element name="onAddRevokeUser" type="tns:onAddRevokeUser"/>
+
+  <xs:element name="onAddRevokeUserResponse" type="tns:onAddRevokeUserResponse"/>
+
+  <xs:element name="onAddSupplier" type="tns:onAddSupplier"/>
+
+  <xs:element name="onAddSupplierResponse" type="tns:onAddSupplierResponse"/>
+
+  <xs:element name="onCancelAction" type="tns:onCancelAction"/>
+
+  <xs:element name="onCancelActionResponse" type="tns:onCancelActionResponse"/>
+
+  <xs:element name="onDeactivateProduct" type="tns:onDeactivateProduct"/>
+
+  <xs:element name="onDeactivateProductResponse" type="tns:onDeactivateProductResponse"/>
+
+  <xs:element name="onModifySubscription" type="tns:onModifySubscription"/>
+
+  <xs:element name="onModifySubscriptionResponse" type="tns:onModifySubscriptionResponse"/>
+
+  <xs:element name="onRegisterCustomer" type="tns:onRegisterCustomer"/>
+
+  <xs:element name="onRegisterCustomerResponse" type="tns:onRegisterCustomerResponse"/>
+
+  <xs:element name="onRegisterUserInOwnOrganization" type="tns:onRegisterUserInOwnOrganization"/>
+
+  <xs:element name="onRegisterUserInOwnOrganizationResponse" type="tns:onRegisterUserInOwnOrganizationResponse"/>
+
+  <xs:element name="onRemoveSupplier" type="tns:onRemoveSupplier"/>
+
+  <xs:element name="onRemoveSupplierResponse" type="tns:onRemoveSupplierResponse"/>
+
+  <xs:element name="onSaveCustomerPaymentConfiguration" type="tns:onSaveCustomerPaymentConfiguration"/>
+
+  <xs:element name="onSaveCustomerPaymentConfigurationResponse" type="tns:onSaveCustomerPaymentConfigurationResponse"/>
+
+  <xs:element name="onSaveDefaultPaymentConfiguration" type="tns:onSaveDefaultPaymentConfiguration"/>
+
+  <xs:element name="onSaveDefaultPaymentConfigurationResponse" type="tns:onSaveDefaultPaymentConfigurationResponse"/>
+
+  <xs:element name="onSaveServiceDefaultPaymentConfiguration" type="tns:onSaveServiceDefaultPaymentConfiguration"/>
+
+  <xs:element name="onSaveServiceDefaultPaymentConfigurationResponse" type="tns:onSaveServiceDefaultPaymentConfigurationResponse"/>
+
+  <xs:element name="onSaveServicePaymentConfiguration" type="tns:onSaveServicePaymentConfiguration"/>
+
+  <xs:element name="onSaveServicePaymentConfigurationResponse" type="tns:onSaveServicePaymentConfigurationResponse"/>
+
+  <xs:element name="onSubscribeToProduct" type="tns:onSubscribeToProduct"/>
+
+  <xs:element name="onSubscribeToProductResponse" type="tns:onSubscribeToProductResponse"/>
+
+  <xs:element name="onSubscriptionCreation" type="tns:onSubscriptionCreation"/>
+
+  <xs:element name="onSubscriptionCreationResponse" type="tns:onSubscriptionCreationResponse"/>
+
+  <xs:element name="onSubscriptionModification" type="tns:onSubscriptionModification"/>
+
+  <xs:element name="onSubscriptionModificationResponse" type="tns:onSubscriptionModificationResponse"/>
+
+  <xs:element name="onSubscriptionTermination" type="tns:onSubscriptionTermination"/>
+
+  <xs:element name="onSubscriptionTerminationResponse" type="tns:onSubscriptionTerminationResponse"/>
+
+  <xs:element name="onUnsubscribeFromProduct" type="tns:onUnsubscribeFromProduct"/>
+
+  <xs:element name="onUnsubscribeFromProductResponse" type="tns:onUnsubscribeFromProductResponse"/>
+
+  <xs:element name="onUpgradeSubscription" type="tns:onUpgradeSubscription"/>
+
+  <xs:element name="onUpgradeSubscriptionResponse" type="tns:onUpgradeSubscriptionResponse"/>
+
+  <xs:element name="voService" type="tns:voService"/>
+
+  <xs:complexType name="onUnsubscribeFromProduct">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="subId" type="xs:string" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voTriggerProcess">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="activationDate" type="xs:long"/>
+          <xs:element name="parameter" type="xs:string" minOccurs="0"/>
+          <xs:element name="reason" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="tns:triggerProcessStatus" minOccurs="0"/>
+          <xs:element name="targetNames" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="triggerDefinition" type="tns:voTriggerDefinition" minOccurs="0"/>
+          <xs:element name="user" type="tns:voUser" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="baseVO" abstract="true">
+    <xs:sequence>
+      <xs:element name="key" type="xs:long"/>
+      <xs:element name="version" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voTriggerDefinition">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="suspendProcess" type="xs:boolean"/>
+          <xs:element name="target" type="xs:string" minOccurs="0"/>
+          <xs:element name="targetType" type="tns:triggerTargetType" minOccurs="0"/>
+          <xs:element name="type" type="tns:triggerType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voUser">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="organizationId" type="xs:string" minOccurs="0"/>
+          <xs:element name="organizationRoles" type="tns:organizationRoleType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="status" type="tns:userAccountStatus" minOccurs="0"/>
+          <xs:element name="userId" type="xs:string" minOccurs="0"/>
+          <xs:element name="userRoles" type="tns:userRoleType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onUnsubscribeFromProductResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onRemoveSupplier">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="supplierId" type="xs:string" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onRemoveSupplierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onRegisterUserInOwnOrganization">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="user" type="tns:voUserDetails" form="unqualified" minOccurs="0"/>
+      <xs:element name="roles" type="tns:userRoleType" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="marketplaceId" type="xs:string" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voUserDetails">
+    <xs:complexContent>
+      <xs:extension base="tns:voUser">
+        <xs:sequence>
+          <xs:element name="additionalName" type="xs:string" minOccurs="0"/>
+          <xs:element name="address" type="xs:string" minOccurs="0"/>
+          <xs:element name="EMail" type="xs:string" minOccurs="0"/>
+          <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+          <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+          <xs:element name="locale" type="xs:string" minOccurs="0"/>
+          <xs:element name="phone" type="xs:string" minOccurs="0"/>
+          <xs:element name="realmUserId" type="xs:string" minOccurs="0"/>
+          <xs:element name="remoteLdapActive" type="xs:boolean"/>
+          <xs:element name="remoteLdapAttributes" type="tns:settingType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="salutation" type="tns:salutation" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onRegisterUserInOwnOrganizationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onCancelAction">
+    <xs:sequence>
+      <xs:element name="actionKey" type="xs:long" form="unqualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onCancelActionResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscriptionModification">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="modifiedParameters" type="tns:voParameter" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="notification" type="tns:voNotification" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voParameter">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="configurable" type="xs:boolean"/>
+          <xs:element name="parameterDefinition" type="tns:voParameterDefinition" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voParameterDefinition">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="configurable" type="xs:boolean"/>
+          <xs:element name="defaultValue" type="xs:string" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="mandatory" type="xs:boolean"/>
+          <xs:element name="maxValue" type="xs:long" minOccurs="0"/>
+          <xs:element name="minValue" type="xs:long" minOccurs="0"/>
+          <xs:element name="modificationType" type="tns:parameterModificationType" minOccurs="0"/>
+          <xs:element name="parameterId" type="xs:string" minOccurs="0"/>
+          <xs:element name="parameterOptions" type="tns:voParameterOption" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="parameterType" type="tns:parameterType" minOccurs="0"/>
+          <xs:element name="valueType" type="tns:parameterValueType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voParameterOption">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="optionDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="optionId" type="xs:string" minOccurs="0"/>
+          <xs:element name="paramDefId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voNotification">
+    <xs:sequence>
+      <xs:element name="properties" type="tns:voProperty" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voProperty">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscriptionModificationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onDeactivateProduct">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="product" type="tns:voService" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voService">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="accessType" type="tns:serviceAccessType" minOccurs="0"/>
+          <xs:element name="averageRating" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="baseURL" type="xs:string" minOccurs="0"/>
+          <xs:element name="configuratorUrl" type="xs:string" minOccurs="0"/>
+          <xs:element name="customTabName" type="xs:string" minOccurs="0"/>
+          <xs:element name="customTabUrl" type="xs:string" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="featureURL" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="numberOfReviews" type="xs:int"/>
+          <xs:element name="offeringType" type="tns:offeringType" minOccurs="0"/>
+          <xs:element name="parameters" type="tns:voParameter" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="priceModel" type="tns:voPriceModel" minOccurs="0"/>
+          <xs:element name="sellerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="sellerKey" type="xs:long"/>
+          <xs:element name="sellerName" type="xs:string" minOccurs="0"/>
+          <xs:element name="serviceId" type="xs:string" minOccurs="0"/>
+          <xs:element name="shortDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="tns:serviceStatus" minOccurs="0"/>
+          <xs:element name="tags" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="technicalId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voPriceModel">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="consideredEvents" type="tns:voPricedEvent" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="currencyISOCode" type="xs:string" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="external" type="xs:boolean"/>
+          <xs:element name="freePeriod" type="xs:int"/>
+          <xs:element name="license" type="xs:string" minOccurs="0"/>
+          <xs:element name="oneTimeFee" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="period" type="tns:pricingPeriod" minOccurs="0"/>
+          <xs:element name="pricePerPeriod" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="pricePerUserAssignment" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="roleSpecificUserPrices" type="tns:voPricedRole" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="selectedParameters" type="tns:voPricedParameter" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="steppedPrices" type="tns:voSteppedPrice" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="type" type="tns:priceModelType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voPricedEvent">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="eventDefinition" type="tns:voEventDefinition" minOccurs="0"/>
+          <xs:element name="eventPrice" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="steppedPrices" type="tns:voSteppedPrice" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voEventDefinition">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="eventDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="eventId" type="xs:string" minOccurs="0"/>
+          <xs:element name="eventType" type="tns:eventType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voSteppedPrice">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="limit" type="xs:long" minOccurs="0"/>
+          <xs:element name="price" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voPricedRole">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="pricePerUser" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="role" type="tns:voRoleDefinition" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voRoleDefinition">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="roleId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voPricedParameter">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="parameterKey" type="xs:long"/>
+          <xs:element name="pricePerSubscription" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="pricePerUser" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="pricedOptions" type="tns:voPricedOption" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="roleSpecificUserPrices" type="tns:voPricedRole" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="steppedPrices" type="tns:voSteppedPrice" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="voParameterDef" type="tns:voParameterDefinition" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voPricedOption">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="optionId" type="xs:string" minOccurs="0"/>
+          <xs:element name="parameterOptionKey" type="xs:long"/>
+          <xs:element name="pricePerSubscription" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="pricePerUser" type="xs:decimal" minOccurs="0"/>
+          <xs:element name="roleSpecificUserPrices" type="tns:voPricedRole" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onDeactivateProductResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onModifySubscription">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="subscription" type="tns:voSubscription" form="unqualified" minOccurs="0"/>
+      <xs:element name="modifiedParameters" type="tns:voParameter" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voSubscription">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="activationDate" type="xs:long" minOccurs="0"/>
+          <xs:element name="creationDate" type="xs:long" minOccurs="0"/>
+          <xs:element name="deactivationDate" type="xs:long" minOccurs="0"/>
+          <xs:element name="numberOfAssignedUsers" type="xs:int"/>
+          <xs:element name="ownerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="provisioningProgress" type="xs:string" minOccurs="0"/>
+          <xs:element name="purchaseOrderNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="sellerName" type="xs:string" minOccurs="0"/>
+          <xs:element name="serviceAccessInfo" type="xs:string" minOccurs="0"/>
+          <xs:element name="serviceAccessType" type="tns:serviceAccessType" minOccurs="0"/>
+          <xs:element name="serviceBaseURL" type="xs:string" minOccurs="0"/>
+          <xs:element name="serviceId" type="xs:string" minOccurs="0"/>
+          <xs:element name="serviceInstanceId" type="xs:string" minOccurs="0"/>
+          <xs:element name="serviceKey" type="xs:long"/>
+          <xs:element name="serviceLoginPath" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="tns:subscriptionStatus" minOccurs="0"/>
+          <xs:element name="subscriptionId" type="xs:string" minOccurs="0"/>
+          <xs:element name="technicalServiceOperations" type="tns:voTechnicalServiceOperation" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="timeoutMailSent" type="xs:boolean"/>
+          <xs:element name="unitKey" type="xs:long"/>
+          <xs:element name="unitName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voTechnicalServiceOperation">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="operationDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="operationId" type="xs:string" minOccurs="0"/>
+          <xs:element name="operationName" type="xs:string" minOccurs="0"/>
+          <xs:element name="operationParameters" type="tns:voServiceOperationParameter" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voServiceOperationParameter">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="mandatory" type="xs:boolean"/>
+          <xs:element name="parameterId" type="xs:string" minOccurs="0"/>
+          <xs:element name="parameterName" type="xs:string" minOccurs="0"/>
+          <xs:element name="parameterValue" type="xs:string" minOccurs="0"/>
+          <xs:element name="type" type="tns:operationParameterType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onModifySubscriptionResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveCustomerPaymentConfiguration">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="customerConfiguration" type="tns:voOrganizationPaymentConfiguration" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voOrganizationPaymentConfiguration">
+    <xs:sequence>
+      <xs:element name="enabledPaymentTypes" type="tns:voPaymentType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="organization" type="tns:voOrganization" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voPaymentType">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="collectionType" type="tns:paymentCollectionType" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="paymentTypeId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voOrganization">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="address" type="xs:string" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="discount" type="tns:voDiscount" minOccurs="0"/>
+          <xs:element name="distinguishedName" type="xs:string" minOccurs="0"/>
+          <xs:element name="domicileCountry" type="xs:string" minOccurs="0"/>
+          <xs:element name="email" type="xs:string" minOccurs="0"/>
+          <xs:element name="imageDefined" type="xs:boolean"/>
+          <xs:element name="locale" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="nameSpace" type="xs:string" minOccurs="0"/>
+          <xs:element name="organizationId" type="xs:string" minOccurs="0"/>
+          <xs:element name="phone" type="xs:string" minOccurs="0"/>
+          <xs:element name="supportEmail" type="xs:string" minOccurs="0"/>
+          <xs:element name="url" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="voDiscount">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="endTime" type="xs:long" minOccurs="0"/>
+          <xs:element name="startTime" type="xs:long" minOccurs="0"/>
+          <xs:element name="value" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveCustomerPaymentConfigurationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveServicePaymentConfiguration">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="serviceConfiguration" type="tns:voServicePaymentConfiguration" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voServicePaymentConfiguration">
+    <xs:sequence>
+      <xs:element name="enabledPaymentTypes" type="tns:voPaymentType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="service" type="tns:voService" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveServicePaymentConfigurationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveServiceDefaultPaymentConfiguration">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="defaultConfiguration" type="tns:voPaymentType" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveServiceDefaultPaymentConfigurationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onRegisterCustomer">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="organization" type="tns:voOrganization" form="unqualified" minOccurs="0"/>
+      <xs:element name="user" type="tns:voUserDetails" form="unqualified" minOccurs="0"/>
+      <xs:element form="unqualified" name="organizationProperties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="0" type="xs:anyType"/>
+                  <xs:element name="value" minOccurs="0" type="xs:anyType"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onRegisterCustomerResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscribeToProduct">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="subscription" type="tns:voSubscription" form="unqualified" minOccurs="0"/>
+      <xs:element name="product" type="tns:voService" form="unqualified" minOccurs="0"/>
+      <xs:element name="users" type="tns:voUsageLicense" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="voUsageLicense">
+    <xs:complexContent>
+      <xs:extension base="tns:baseVO">
+        <xs:sequence>
+          <xs:element name="applicationUserId" type="xs:string" minOccurs="0"/>
+          <xs:element name="roleDefinition" type="tns:voRoleDefinition" minOccurs="0"/>
+          <xs:element name="user" type="tns:voUser" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscribeToProductResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscriptionCreation">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="service" type="tns:voService" form="unqualified" minOccurs="0"/>
+      <xs:element name="users" type="tns:voUsageLicense" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="notification" type="tns:voNotification" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscriptionCreationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="billingPerformed">
+    <xs:sequence>
+      <xs:element name="xmlBillingData" type="xs:string" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="billingPerformedResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveDefaultPaymentConfiguration">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="defaultConfiguration" type="tns:voPaymentType" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onSaveDefaultPaymentConfigurationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onUpgradeSubscription">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="current" type="tns:voSubscription" form="unqualified" minOccurs="0"/>
+      <xs:element name="newProduct" type="tns:voService" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onUpgradeSubscriptionResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onAddRevokeUser">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="subscriptionId" type="xs:string" form="unqualified" minOccurs="0"/>
+      <xs:element name="usersToBeAdded" type="tns:voUsageLicense" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="usersToBeRevoked" type="tns:voUser" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onAddRevokeUserResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscriptionTermination">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="notification" type="tns:voNotification" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onSubscriptionTerminationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onAddSupplier">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="supplierId" type="xs:string" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onAddSupplierResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="onActivateProduct">
+    <xs:sequence>
+      <xs:element name="triggerProcess" type="tns:voTriggerProcess" form="unqualified" minOccurs="0"/>
+      <xs:element name="product" type="tns:voService" form="unqualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="onActivateProductResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:simpleType name="triggerProcessStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INITIAL"/>
+      <xs:enumeration value="WAITING_FOR_APPROVAL"/>
+      <xs:enumeration value="APPROVED"/>
+      <xs:enumeration value="CANCELLED"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="FAILED"/>
+      <xs:enumeration value="REJECTED"/>
+      <xs:enumeration value="NOTIFIED"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="triggerTargetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WEB_SERVICE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="triggerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVATE_SERVICE"/>
+      <xs:enumeration value="ADD_REVOKE_USER"/>
+      <xs:enumeration value="DEACTIVATE_SERVICE"/>
+      <xs:enumeration value="MODIFY_SUBSCRIPTION"/>
+      <xs:enumeration value="REGISTER_CUSTOMER_FOR_SUPPLIER"/>
+      <xs:enumeration value="REGISTER_OWN_USER"/>
+      <xs:enumeration value="SAVE_PAYMENT_CONFIGURATION"/>
+      <xs:enumeration value="START_BILLING_RUN"/>
+      <xs:enumeration value="SUBSCRIBE_TO_SERVICE"/>
+      <xs:enumeration value="UNSUBSCRIBE_FROM_SERVICE"/>
+      <xs:enumeration value="UPGRADE_SUBSCRIPTION"/>
+      <xs:enumeration value="SUBSCRIPTION_CREATION"/>
+      <xs:enumeration value="SUBSCRIPTION_MODIFICATION"/>
+      <xs:enumeration value="SUBSCRIPTION_TERMINATION"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="organizationRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MARKETPLACE_OWNER"/>
+      <xs:enumeration value="PLATFORM_OPERATOR"/>
+      <xs:enumeration value="TECHNOLOGY_PROVIDER"/>
+      <xs:enumeration value="SUPPLIER"/>
+      <xs:enumeration value="CUSTOMER"/>
+      <xs:enumeration value="BROKER"/>
+      <xs:enumeration value="RESELLER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="userAccountStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="PASSWORD_MUST_BE_CHANGED"/>
+      <xs:enumeration value="LOCKED_NOT_CONFIRMED"/>
+      <xs:enumeration value="LOCKED_FAILED_LOGIN_ATTEMPTS"/>
+      <xs:enumeration value="LOCKED"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="userRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SERVICE_MANAGER"/>
+      <xs:enumeration value="TECHNOLOGY_MANAGER"/>
+      <xs:enumeration value="ORGANIZATION_ADMIN"/>
+      <xs:enumeration value="PLATFORM_OPERATOR"/>
+      <xs:enumeration value="MARKETPLACE_OWNER"/>
+      <xs:enumeration value="BROKER_MANAGER"/>
+      <xs:enumeration value="RESELLER_MANAGER"/>
+      <xs:enumeration value="SUBSCRIPTION_MANAGER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="settingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LDAP_BASE_DN"/>
+      <xs:enumeration value="LDAP_CONTEXT_FACTORY"/>
+      <xs:enumeration value="LDAP_CREDENTIALS"/>
+      <xs:enumeration value="LDAP_PRINCIPAL"/>
+      <xs:enumeration value="LDAP_URL"/>
+      <xs:enumeration value="LDAP_ATTR_ADDITIONAL_NAME"/>
+      <xs:enumeration value="LDAP_ATTR_EMAIL"/>
+      <xs:enumeration value="LDAP_ATTR_FIRST_NAME"/>
+      <xs:enumeration value="LDAP_ATTR_LAST_NAME"/>
+      <xs:enumeration value="LDAP_ATTR_LOCALE"/>
+      <xs:enumeration value="LDAP_ATTR_UID"/>
+      <xs:enumeration value="LDAP_ATTR_REFERRAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="salutation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MR"/>
+      <xs:enumeration value="MS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="parameterModificationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STANDARD"/>
+      <xs:enumeration value="ONE_TIME"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="parameterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PLATFORM_PARAMETER"/>
+      <xs:enumeration value="SERVICE_PARAMETER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="parameterValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BOOLEAN"/>
+      <xs:enumeration value="INTEGER"/>
+      <xs:enumeration value="LONG"/>
+      <xs:enumeration value="STRING"/>
+      <xs:enumeration value="DURATION"/>
+      <xs:enumeration value="ENUMERATION"/>
+      <xs:enumeration value="PWD"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="serviceAccessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LOGIN"/>
+      <xs:enumeration value="DIRECT"/>
+      <xs:enumeration value="USER"/>
+      <xs:enumeration value="EXTERNAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="offeringType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BROKER"/>
+      <xs:enumeration value="RESELLER"/>
+      <xs:enumeration value="DIRECT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="eventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SERVICE_EVENT"/>
+      <xs:enumeration value="PLATFORM_EVENT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pricingPeriod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MONTH"/>
+      <xs:enumeration value="WEEK"/>
+      <xs:enumeration value="DAY"/>
+      <xs:enumeration value="HOUR"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="priceModelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FREE_OF_CHARGE"/>
+      <xs:enumeration value="PRO_RATA"/>
+      <xs:enumeration value="PER_UNIT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="serviceStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="OBSOLETE"/>
+      <xs:enumeration value="DELETED"/>
+      <xs:enumeration value="INACTIVE"/>
+      <xs:enumeration value="SUSPENDED"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="subscriptionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="PENDING"/>
+      <xs:enumeration value="DEACTIVATED"/>
+      <xs:enumeration value="EXPIRED"/>
+      <xs:enumeration value="INVALID"/>
+      <xs:enumeration value="SUSPENDED"/>
+      <xs:enumeration value="PENDING_UPD"/>
+      <xs:enumeration value="SUSPENDED_UPD"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="operationParameterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INPUT_STRING"/>
+      <xs:enumeration value="REQUEST_SELECT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="paymentCollectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ORGANIZATION"/>
+      <xs:enumeration value="PAYMENT_SERVICE_PROVIDER"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
