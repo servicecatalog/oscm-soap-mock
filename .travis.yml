@@ -6,8 +6,7 @@ install:
   servicecatalog/oscm-soap-mock
 - cd servicecatalog/oscm-soap-mock
 - mvn validate
-- mvn install -f ./pom.xml
-- cd ../..
+- mvn install
 env:
   - COMMIT=${TRAVIS_COMMIT::8}
 after_success:
