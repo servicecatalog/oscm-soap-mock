@@ -1,0 +1,9 @@
+language: java
+jdk: openjdk8
+
+install:
+- git clone --depth=1 --branch=master https://github.com/servicecatalog/oscm-soap-mock.git
+  servicecatalog/oscm-soap-mock
+- cd servicecatalog/oscm-soap-mock
+- mvn install -f ./pom.xml
+- cd ../..
