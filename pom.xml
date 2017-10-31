@@ -4,15 +4,22 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.oscm.integrationtests.mockproduct</groupId>
     <artifactId>oscm-soap-mock</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>war</packaging>
     <name>${project.artifactId}-${project.version}</name>
     <description>Mock for integration with OSCM SOAP API</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tools.version>0.0.1-SNAPSHOT</tools.version>
+        <tools.version>0.0.1</tools.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <build>
 
@@ -26,87 +33,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-                <executions>
-                    <execution>
-                        <id>oscm-common</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>org.oscm</groupId>
-                            <artifactId>oscm-common</artifactId>
-                            <version>17.4</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/lib/oscm-common.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                    </execution>
-
-                    <execution>
-                        <id>oscm-extsvc-provisioning</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>org.oscm</groupId>
-                            <artifactId>oscm-extsvc-provisioning</artifactId>
-                            <version>1.8</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/lib/oscm-extsvc-provisioning.jar</file>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>oscm-extsvc-notification</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>org.oscm</groupId>
-                            <artifactId>oscm-extsvc-notification</artifactId>
-                            <version>1.9</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/lib/oscm-extsvc-notification.jar</file>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>oscm-extsvc-operation</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>org.oscm</groupId>
-                            <artifactId>oscm-extsvc-operation</artifactId>
-                            <version>1.5</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/lib/oscm-extsvc-operation.jar</file>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>oscm-extsvc-platform</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <configuration>
-                            <groupId>org.oscm</groupId>
-                            <artifactId>oscm-extsvc-platform</artifactId>
-                            <version>1.9</version>
-                            <packaging>jar</packaging>
-                            <file>${basedir}/lib/oscm-extsvc-platform.jar</file>
-                        </configuration>
-                    </execution>
-
-                </executions>
             </plugin>
 
         </plugins>
@@ -151,29 +77,24 @@
         </dependency>
 
         <dependency>
-            <groupId>org.oscm</groupId>
+            <groupId>com.github.servicecatalog.oscm-commons</groupId>
             <artifactId>oscm-common</artifactId>
-            <version>17.4</version>
+            <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.oscm</groupId>
-            <artifactId>oscm-extsvc-platform</artifactId>
-            <version>1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.oscm</groupId>
+            <groupId>com.github.servicecatalog.oscm-external-interfaces</groupId>
             <artifactId>oscm-extsvc-provisioning</artifactId>
-            <version>1.8</version>
+            <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.oscm</groupId>
-            <artifactId>oscm-extsvc-notification</artifactId>
-            <version>1.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.oscm</groupId>
+            <groupId>com.github.servicecatalog.oscm-external-interfaces</groupId>
             <artifactId>oscm-extsvc-operation</artifactId>
-            <version>1.5</version>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.servicecatalog.oscm-external-interfaces</groupId>
+            <artifactId>oscm-extsvc-notification</artifactId>
+            <version>1.0</version>
         </dependency>
 
     </dependencies>
