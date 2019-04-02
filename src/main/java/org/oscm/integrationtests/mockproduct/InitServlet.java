@@ -31,8 +31,8 @@ public class InitServlet extends HttpServlet {
         ctx.setAttribute(REQUESTLOG, new RequestLog());
         ctx.setAttribute(OPERATIONREGISTRY, new OperationRegistry());
 
-        System.setProperty("javax.net.ssl.trustStore", "/root/tmp/sslfqdn.p12");
-        System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+        //System.setProperty("javax.net.ssl.trustStore", "/root/tmp/sslfqdn.p12");
+        //System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
     }
 
 }
