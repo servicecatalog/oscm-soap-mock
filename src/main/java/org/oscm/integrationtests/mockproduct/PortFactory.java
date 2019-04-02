@@ -106,19 +106,19 @@ public class PortFactory {
 
         URL wsdlLocation = getWsdlLocation(info, serviceName);
 
-        if (!info.isClientCert()) {
+        /*if (!info.isClientCert()) {
             wsdlLocation = withCredentials(wsdlLocation, info.getUsername(),
                     info.getPassword());
-        }
+        }*/
 
         final Service service = Service.create(wsdlLocation, new QName(
                 "http://oscm.org/xsd", serviceName));
 
         final T port = service.getPort(type);
         BindingProvider bindingProvider = (BindingProvider) port;
-        final Map<String, Object> ctx = bindingProvider.getRequestContext();
+        /*final Map<String, Object> ctx = bindingProvider.getRequestContext();
         ctx.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
-                getEndpointLocation(info, serviceName).toString());
+                getEndpointLocation(info, serviceName).toString());*/
         if (!info.isClientCert()) {
             Binding binding = bindingProvider.getBinding();
             @SuppressWarnings("rawtypes")
@@ -182,8 +182,8 @@ public class PortFactory {
             binding.setHandlerChain(handlerChain);
             
         } else if (SAML_SP.equals(info.getAuthMode())) {
-            ctx.put("username", info.getUsername());
-            ctx.put("password", info.getPassword());
+            /*ctx.put("username", info.getUsername());
+            ctx.put("password", info.getPassword());*/
         }
 
         return port;
