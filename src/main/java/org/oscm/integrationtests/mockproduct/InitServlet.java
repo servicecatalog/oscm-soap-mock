@@ -30,6 +30,9 @@ public class InitServlet extends HttpServlet {
         final ServletContext ctx = config.getServletContext();
         ctx.setAttribute(REQUESTLOG, new RequestLog());
         ctx.setAttribute(OPERATIONREGISTRY, new OperationRegistry());
+
+        //System.setProperty("javax.net.ssl.trustStore", "/root/tmp/sslfqdn.p12");
+        //System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
     }
 
 }

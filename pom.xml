@@ -79,22 +79,22 @@
         <dependency>
             <groupId>com.github.servicecatalog.oscm-commons</groupId>
             <artifactId>oscm-common</artifactId>
-            <version>1.0</version>
+            <version>master-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.servicecatalog.oscm-external-interfaces</groupId>
             <artifactId>oscm-extsvc-provisioning</artifactId>
-            <version>1.0</version>
+            <version>master-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.servicecatalog.oscm-external-interfaces</groupId>
             <artifactId>oscm-extsvc-operation</artifactId>
-            <version>1.0</version>
+            <version>master-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.servicecatalog.oscm-external-interfaces</groupId>
             <artifactId>oscm-extsvc-notification</artifactId>
-            <version>1.0</version>
+            <version>master-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
