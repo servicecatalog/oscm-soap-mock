@@ -15,7 +15,7 @@ This is web application which serves as a mock for testing the OSCM SOAP APIs.
 ## Short Use Case
 ### Provisioning Service Mock
 1. Login to oscm-portal as supplier user having service manager and technology manager roles
-2. Import the technical service template using this XML template
+2. Import the technical serv)ice template using [this XML file](https://github.com/servicecatalog/oscm-soap-mock/blob/master/TechnicalService_SoapMock.xml).
 3. Create a marketable service from this mock service and choose a free price model
 4. Publish your service offer to your marketplace and activate it
 5. Find the service in the marketplace portal and subscribe it.
