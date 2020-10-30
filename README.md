@@ -15,7 +15,7 @@ This is web application which serves as a mock for testing the OSCM SOAP APIs.
 ## Short Use Case
 ### Provisioning Service Mock
 1. Login to oscm-portal as supplier user having service manager and technology manager roles
-2. Import the technical serv)ice template using [this XML file](https://github.com/servicecatalog/oscm-soap-mock/blob/master/TechnicalService_SoapMock.xml).
+2. Import the technical service template using [this XML file](https://github.com/servicecatalog/oscm-soap-mock/blob/master/TechnicalService_SoapMock.xml).
 3. Create a marketable service from this mock service and choose a free price model
 4. Publish your service offer to your marketplace and activate it
 5. Find the service in the marketplace portal and subscribe it.
@@ -48,11 +48,10 @@ Complete the pending subscription as follows.
 6. Assign the supplier user to the subscription
 
 ### Operation Service Mock
-Now you can use operations as follows.
+Now you can use operations.
 1. As supplier user, locate the subscription in the My Subscriptions view and find the operation menu
 2. Choose the Create Snapshot operation from the drop down
 3. Choose a server, a comment and execute the operation
-
 4. Here you go! Since the operation is mocked, it returns very fast. Longer running actions can be tracked the Operations view, available in the marketplace account menu.
 
 Have fun!
