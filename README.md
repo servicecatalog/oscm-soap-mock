@@ -35,7 +35,7 @@ Complete the pending subscription as follows.
 ```
    
 3. Scroll down the left menu list and select *SubscriptionService.completeAsyncSubscription*
-4. Enter following values in the Parameter table and run the SOAP API call with with 'Execute'
+4. Enter following values in the Parameter table. Click 'Execute' to run this SOAP API call. 
 ```
    Subscription Id : the name of the subscription you have chosen
    Organization Id : 959c9bf7 (find the organization id in the user profile of your supplier user)
@@ -48,7 +48,7 @@ Complete the pending subscription as follows.
 6. Assign the supplier user to the subscription
 
 ### Operation Service Mock
-Now you can use operations.
+Now you can use the operations, which are defined in the technical service.
 1. As supplier user, locate the subscription in the My Subscriptions view and find the operation menu
 2. Choose the Create Snapshot operation from the drop down
 3. Choose a server, a comment and execute the operation
