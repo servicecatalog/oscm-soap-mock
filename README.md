@@ -52,7 +52,9 @@ Now you can use the operations, which are defined in the technical service.
 1. As supplier user, locate the subscription in the My Subscriptions view and find the operation menu
 2. Choose the Create Snapshot operation from the drop down
 3. Choose a server, a comment and execute the operation
-4. Here you go! Since the operation is mocked, it returns very fast. Longer running actions can be tracked the Operations view, available in the marketplace account menu.
+4. Ready! 
+
+Since the operation is mocked, it returns very fast. Longer running actions can be tracked the Operations view, available in the marketplace account menu.
 
 Have fun!
    
