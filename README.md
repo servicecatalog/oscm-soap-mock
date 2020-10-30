@@ -34,7 +34,7 @@ Complete the pending subscription as follows.
    Authentication : BASIC AUTH 
 ```
    
-3. Scroll down the left menu list and select SubscriptionService.completeAsyncSubscription
+3. Scroll down the left menu list and select *SubscriptionService.completeAsyncSubscription*
 4. Enter following values in the Parameter table and run the SOAP API call with with 'Execute'
 ```
    Subscription Id : the name of the subscription you have chosen
