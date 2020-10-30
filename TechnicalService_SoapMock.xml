@@ -5,7 +5,7 @@
   xsi:schemaLocation="oscm.serviceprovisioning/1.9/TechnicalService.xsd ../../oscm-serviceprovisioning/javares/TechnicalServices.xsd">
 
   <tns:TechnicalService id="Mock 1.0" build="2019.05.10" provisioningType="ASYNCHRONOUS"
-    baseUrl="http://oscm-core:8080/oscm-soap-mock" provisioningUrl="http://oscm-core:8080/oscm-soap-mock/ProvisioningService?wsdl"
+    baseUrl="http://oscm-core:8080/oscm-soap-mock" provisioningUrl="http://oscm-core:8080/oscm-soap-mock/MockProvisioningService?wsdl"
     provisioningVersion="1.0" accessType="LOGIN" loginPath="/login">
 
     <AccessInfo locale="en">Description of how to access the application.</AccessInfo>
@@ -77,6 +77,29 @@
         of ProvisioningService.createUsers call will be executed.
       </LocalizedDescription>
     </ParameterDefinition>
+    
+    <Operation id="SNAPSHOT"
+       actionURL="http://oscm-core:8080/oscm-soap-mock/MockOperationService?wsdl">
+      <LocalizedName locale="en">Create snapshot</LocalizedName>
+      <LocalizedName locale="de">Snapshot anlegen</LocalizedName>
+      <LocalizedDescription locale="en">Creates a snapshot.</LocalizedDescription>
+      <LocalizedDescription locale="de">Legt einen snapshot an.</LocalizedDescription>
+      <OperationParameter id="SERVER" mandatory="false" type="REQUEST_SELECT">
+        <LocalizedName locale="en">Server</LocalizedName>
+        <LocalizedName locale="de">Server</LocalizedName>
+      </OperationParameter>
+      <OperationParameter id="COMMENT" mandatory="true" type="INPUT_STRING">
+        <LocalizedName locale="en">Comment</LocalizedName>
+        <LocalizedName locale="de">Kommentar</LocalizedName>
+      </OperationParameter>
+    </Operation>
+    <Operation id="CAUSE_ERROR"
+      actionURL="http://oscm-core:8080/oscm-soap-mock/MockOperationService?wsdl">
+      <LocalizedName locale="en">Error</LocalizedName>
+      <LocalizedName locale="de">Fehler</LocalizedName>
+      <LocalizedDescription locale="en">Cause an error.</LocalizedDescription>
+      <LocalizedDescription locale="de">Einen Fehler verursachen.</LocalizedDescription>
+    </Operation>
   </tns:TechnicalService>
 
 </tns:TechnicalServices>
